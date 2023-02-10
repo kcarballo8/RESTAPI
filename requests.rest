@@ -1,0 +1,91 @@
+@username= gfoust
+@subject= Comp1560
+###6238b6390c2860b36950bae3 fabricio
+### create 
+POST http://localhost:8000/api/users/
+Content-Type: application/json
+
+{  "username": "nalfaro",
+    "firstname": "Nestor",
+    "lastname": "Alfaro",
+    "email": "nalfaro@harding.edu"
+}
+
+
+### show all users
+GET http://localhost:8000/api/users
+
+
+### show username
+GET http://localhost:8000/api/users/623fb6507fc60354489babfe
+
+
+### update user
+PUT http://localhost:8000/api/users/kcarballo
+Content-Type: application/json
+
+{
+    "username": "kcarballo",
+    "firstname": "Karen",
+    "lastname": "Carballo"
+}
+
+
+### delete user
+DELETE http://localhost:8000/api/users/kcarballo
+
+### create course
+POST http://localhost:8000/api/courses
+Content-Type: application/json
+
+{ 
+    "subject": "Bibl",
+    "number": "1088",
+    "title": "Bible",
+    "teacher": "emorataya",
+    "students": ["623fb62a7fc60354489babfc", "623fe464678aa4845a26754e" ]
+}
+
+### show courses
+GET http://localhost:8000/api/courses
+
+### 62393677dbe2eafe1e8a19db course id
+### show course with parameter together
+GET http://localhost:8000/api/courses/comp1510
+
+### show course with id
+GET http://localhost:8000/api/courses/623fba984b22cabbbff72392
+ 
+### get courses from user
+GET http://localhost:8000/api/courses/users/kcarballo
+
+### update course
+PUT http://localhost:8000/api/courses/{{subject}}
+Content-Type: application/json
+
+{ 
+    "subject": "Comp",
+    "number": "1600",
+    "title": "Progra",
+    "teacher": "gfoust",
+    "students": ["62365390bff38ad436c42617", "6238a5b80e61fa0bb4163d9f"]
+}
+
+
+### delete course
+DELETE http://localhost:8000/api/courses/623fc0897215c9a26379824f
+
+
+### show courses
+GET http://localhost:8000/api/courses
+
+### get courses from user
+GET http://localhost:8000/api/courses/users/kcarballo
+
+### rosters
+
+GET http://localhost:8000/api/rosters/623feb92a27b881b5a0f8298 
+
+### add student to class 623feb92a27b881b5a0f8298  BIBL1088
+
+PUT http://localhost:8000/api/rosters/BIBL1088/kcarballo
